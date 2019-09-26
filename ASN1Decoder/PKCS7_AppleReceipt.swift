@@ -42,6 +42,8 @@ extension PKCS7 {
         /// CFBundleVersion (in iOS) or CFBundleShortVersionString (in macOS) in Info.plist
         public fileprivate(set) var originalApplicationVersion: String?
         
+        public fileprivate(set) var opaque: Data?
+        public fileprivate(set) var shaHash: Data?
         public fileprivate(set) var receiptCreationDate: Date?
         public fileprivate(set) var receiptCreationDateString: String?
         public fileprivate(set) var receiptExpirationDate: Date?
@@ -85,6 +87,12 @@ extension PKCS7 {
                 
             case 3:
                 receiptInfo.bundleVersion = fieldValueString
+                
+            case 4:
+                print("Case 4 (opaque) field data: \(fieldValueString)")
+            
+            case 5:
+                print("Case 5 (SHA) field data: \(fieldValueString)")
                 
             case 19:
                 receiptInfo.originalApplicationVersion = fieldValueString
