@@ -35,6 +35,7 @@ extension PKCS7 {
         
         /// CFBundleIdentifier in Info.plist
         public fileprivate(set) var bundleIdentifier: String?
+        public fileprivate(set) var bundleIdentifierData: Data?
         
         /// CFBundleVersion (in iOS) or CFBundleShortVersionString (in macOS) in Info.plist
         public fileprivate(set) var bundleVersion: String?
@@ -84,6 +85,7 @@ extension PKCS7 {
             switch fieldType {
             case 2:
                 receiptInfo.bundleIdentifier = fieldValueString
+                receiptInfo.bundleIdentifierData = item.sub(2)?.sub?.first?.rawValue
                 
             case 3:
                 receiptInfo.bundleVersion = fieldValueString
