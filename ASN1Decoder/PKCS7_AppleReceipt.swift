@@ -92,9 +92,7 @@ extension PKCS7 {
                 receiptInfo.opaque = item.sub(2)!.rawValue
             
             case 5:
-                print("item.sub: \(item.sub(2))")
-                print("Value:")
-                print("Raw value: \(item.sub(2)!.rawValue!.hexString)")
+                receiptInfo.shaHash = item.sub(2)!.rawValue
                 
             case 19:
                 receiptInfo.originalApplicationVersion = fieldValueString
