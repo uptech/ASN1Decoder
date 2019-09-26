@@ -90,21 +90,23 @@ extension PKCS7 {
                 
             case 4:
                 print("Value:")
-                print(item.sub(2)?.sub?.first?.value)
-                let data = item.sub(2)?.sub?.first?.value as? Data
-                let hexString: String = data!.map({ (foo: UInt8) in
-                    String(format: "%02x", foo)
-                }).joined()
+                print("Raw value: \(item!.sub(2).rawValue.hexString)")
+                print("sub 2 sub \(item!.sub(2)!.sub)")
+//                print(item!.sub(2)!.sub?.first?.value)
+//                let data = item.sub(2)?.sub?.first?.value as? Data
+//                let hexString: String = data!.map({ (foo: UInt8) in
+//                    String(format: "%02x", foo)
+//                }).joined()
                 
-                print("Case 4 (opaque) field data: \(hexString)")
+//                print("Case 4 (opaque) field data: \(hexString)")
             
-            case 5:
-                let data = item.sub(2)?.sub?.first?.value as? Data
-                let hexString: String = data!.reduce("", { (result, element) in
-                    return result + String(format: "%02x", element)
-                })
-                
-                print("Case 5 (SHA) field data: \(hexString)")
+//            case 5:
+//                let data = item.sub(2)?.sub?.first?.value as? Data
+//                let hexString: String = data!.reduce("", { (result, element) in
+//                    return result + String(format: "%02x", element)
+//                })
+//
+//                print("Case 5 (SHA) field data: \(hexString)")
                 
             case 19:
                 receiptInfo.originalApplicationVersion = fieldValueString
@@ -165,4 +167,16 @@ extension PKCS7 {
         return receiptInfo
     }
     
+}
+
+extension Data {
+    public var hexString: String {
+        return self.reduce("") { return $0 + String(format: "%02x", $1) }
+    }
+
+    public var hexStringOne: String {
+        return self.map({ (foo: UInt8) in
+            String(format: "%02x", foo)
+        }).joined()
+    }
 }
