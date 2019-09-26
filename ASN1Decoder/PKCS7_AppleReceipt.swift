@@ -89,26 +89,12 @@ extension PKCS7 {
                 receiptInfo.bundleVersion = fieldValueString
                 
             case 4:
+                receiptInfo.opaque = item.sub(2)!.rawValue
+            
+            case 5:
                 print("item.sub: \(item.sub(2))")
                 print("Value:")
                 print("Raw value: \(item.sub(2)!.rawValue!.hexString)")
-//                print("Raw value: \(item.sub(2).rawValue.hexString)")
-//                print("sub 2 sub \(item.sub(2)!.sub)")
-//                print(item!.sub(2)!.sub?.first?.value)
-//                let data = item.sub(2)?.sub?.first?.value as? Data
-//                let hexString: String = data!.map({ (foo: UInt8) in
-//                    String(format: "%02x", foo)
-//                }).joined()
-                
-//                print("Case 4 (opaque) field data: \(hexString)")
-            
-//            case 5:
-//                let data = item.sub(2)?.sub?.first?.value as? Data
-//                let hexString: String = data!.reduce("", { (result, element) in
-//                    return result + String(format: "%02x", element)
-//                })
-//
-//                print("Case 5 (SHA) field data: \(hexString)")
                 
             case 19:
                 receiptInfo.originalApplicationVersion = fieldValueString
