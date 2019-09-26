@@ -89,10 +89,10 @@ extension PKCS7 {
                 receiptInfo.bundleVersion = fieldValueString
                 
             case 4:
-                print("item.sub: \(item!.sub)")
+                print("item.sub: \(item.sub)")
                 print("Value:")
-                print("Raw value: \(item!.sub(2).rawValue.hexString)")
-                print("sub 2 sub \(item!.sub(2)!.sub)")
+//                print("Raw value: \(item.sub(2).rawValue.hexString)")
+//                print("sub 2 sub \(item.sub(2)!.sub)")
 //                print(item!.sub(2)!.sub?.first?.value)
 //                let data = item.sub(2)?.sub?.first?.value as? Data
 //                let hexString: String = data!.map({ (foo: UInt8) in
