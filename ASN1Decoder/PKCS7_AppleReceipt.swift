@@ -89,6 +89,7 @@ extension PKCS7 {
                 receiptInfo.bundleVersion = fieldValueString
                 
             case 4:
+                print("item.sub: \(item!.sub)")
                 print("Value:")
                 print("Raw value: \(item!.sub(2).rawValue.hexString)")
                 print("sub 2 sub \(item!.sub(2)!.sub)")
