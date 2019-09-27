@@ -96,13 +96,22 @@ extension PKCS7 {
                 print("receipt opaque sub 0 \(item.sub(0))")
                 print("raw sub 0 \(item.sub(0)?.rawValue?.hexString)")
                 print("value sub 0 \(item.sub(0)?.value)")
+                print("value sub 0 casted \(item.sub(0)?.value as? Int)")
+                
                 print("***")
+                
                 print("receipt opaque sub 1 \(item.sub(1))")
                 print("raw sub 1 \(item.sub(1)?.rawValue?.hexString)")
                 print("value sub 1 \(item.sub(1)?.value)")
+                print("value sub 1 casted \(item.sub(1)?.value as? Int)")
                 
+                print("***")
                 
-                print("receipt opaque sub 2 \(item.sub(2)?.rawValue?.hexString)")
+                print("receipt opaque sub 2 \(item.sub(2))")
+                print("raw sub 2 \(item.sub(2)?.rawValue?.hexString)")
+                print("value sub 2 \(item.sub(2)?.value)")
+                print("sub 2 sub \(item.sub(2)?.sub)")
+//                print("value sub 1 casted \(item.sub(1)?.value as? Int)")
             
             case 5:
                 receiptInfo.shaHash = item.sub(2)!.rawValue
