@@ -92,12 +92,18 @@ extension PKCS7 {
                 receiptInfo.bundleVersion = fieldValueString
                 
             case 4:
-//                receiptInfo.opaque = item.sub(2)!.rawValue
-                receiptInfo.opaque = item.sub(2)?.sub?.first?.rawValue
+                receiptInfo.opaque = item.sub(2)!.rawValue
+                
                 print("receipt opaque sub 0 \(item.sub(0))")
+                print("raw sub 0 \(item.sub(0)?.rawValue?.hexString)")
+                print("value sub 0 \(item.sub(0)?.value)")
+                
                 print("receipt opaque sub 1 \(item.sub(1))")
-                print("receipt opaque sub 2 \(item.sub(2))")
-                print("raw sub2 first \(item.sub(2)?.sub?.first?.rawValue)")
+                print("raw sub 1 \(item.sub(1)?.rawValue?.hexString)")
+                print("value sub 1 \(item.sub(1)?.value)")
+                
+                
+                print("receipt opaque sub 2 \(item.sub(2)?.rawValue?.hexString)")
             
             case 5:
                 receiptInfo.shaHash = item.sub(2)!.rawValue
