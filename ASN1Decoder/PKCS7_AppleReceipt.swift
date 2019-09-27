@@ -93,6 +93,9 @@ extension PKCS7 {
                 
             case 4:
                 receiptInfo.opaque = item.sub(2)!.rawValue
+                print("receipt opaque sub 0 \(item.sub(0))")
+                print("receipt opaque sub 1 \(item.sub(1))")
+                print("receipt opaque sub 2 \(item.sub(2))")
             
             case 5:
                 receiptInfo.shaHash = item.sub(2)!.rawValue
