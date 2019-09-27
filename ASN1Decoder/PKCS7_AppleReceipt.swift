@@ -141,8 +141,10 @@ extension PKCS7 {
 //                print("value sub 1 casted \(item.sub(1)?.value as? Int)")
             
             case 5:
-                print("receipt opaque sub 0 \(item.sub(0))")
-                print("raw sub 0 \(item.sub(0)?.rawValue?.hexString)")
+                print("receipt opaque sub 2 \(item.sub(2))")
+                print("sub 2 length: \(item.sub(2)?.valueLength)")
+                print("raw sub 2 \(item.sub(2)?.rawValue?.hexString)")
+                
                 receiptInfo.shaHash = item.sub(2)!.rawValue
                 
             case 19:
