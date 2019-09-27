@@ -90,57 +90,59 @@ extension PKCS7 {
             case 3:
                 receiptInfo.bundleVersion = fieldValueString
                 
-                print("")
-                print("******BUNDLE VERSION***********")
-                
-                print("receipt bundleVersion sub 0 \(item.sub(0))")
-                print("raw sub 0 \(item.sub(0)?.rawValue?.hexString)")
-                print("value sub 0 \(item.sub(0)?.value)")
-                print("value sub 0 hex \((item.sub(0)?.value as? Data)?.toIntValue())")
-                
-                print("***")
-                
-                print("receipt bundleVersion sub 1 \(item.sub(1))")
-                print("raw sub 1 \(item.sub(1)?.rawValue?.hexString)")
-                print("value sub 1 \(item.sub(1)?.value)")
-                print("value sub 1 hex \(item.sub(1)?.value as? Int)")
-                print("value sub 1 hex \((item.sub(1)?.value as? Data)?.toIntValue())")
-                
-                print("***")
-                
-                print("receipt bundleVersion sub 2 \(item.sub(2))")
-                print("raw sub 2 \(item.sub(2)?.rawValue?.hexString)")
-                print("value sub 2 \(item.sub(2)?.value)")
-                print("sub 2 sub \(item.sub(2)?.sub)")
+//                print("")
+//                print("******BUNDLE VERSION***********")
+//
+//                print("receipt bundleVersion sub 0 \(item.sub(0))")
+//                print("raw sub 0 \(item.sub(0)?.rawValue?.hexString)")
+//                print("value sub 0 \(item.sub(0)?.value)")
+//                print("value sub 0 hex \((item.sub(0)?.value as? Data)?.toIntValue())")
+//
+//                print("***")
+//
+//                print("receipt bundleVersion sub 1 \(item.sub(1))")
+//                print("raw sub 1 \(item.sub(1)?.rawValue?.hexString)")
+//                print("value sub 1 \(item.sub(1)?.value)")
+//                print("value sub 1 hex \(item.sub(1)?.value as? Int)")
+//                print("value sub 1 hex \((item.sub(1)?.value as? Data)?.toIntValue())")
+//
+//                print("***")
+//
+//                print("receipt bundleVersion sub 2 \(item.sub(2))")
+//                print("raw sub 2 \(item.sub(2)?.rawValue?.hexString)")
+//                print("value sub 2 \(item.sub(2)?.value)")
+//                print("sub 2 sub \(item.sub(2)?.sub)")
                 
             case 4:
                 receiptInfo.opaque = item.sub(2)!.rawValue
                 
-                print("")
-                print("******OPAQUE***********")
-                
-                print("receipt opaque sub 0 \(item.sub(0))")
-                print("raw sub 0 \(item.sub(0)?.rawValue?.hexString)")
-                print("value sub 0 \(item.sub(0)?.value)")
-                print("value sub 0 hex \((item.sub(0)?.value as? Data)?.toIntValue())")
-                
-                print("***")
-                
-                print("receipt opaque sub 1 \(item.sub(1))")
-                print("raw sub 1 \(item.sub(1)?.rawValue?.hexString)")
-                print("value sub 1 \(item.sub(1)?.value)")
-                print("value sub 1 hex \((item.sub(1)?.value as? Data)?.toIntValue())")
-                
-                print("***")
-                
-                print("receipt opaque sub 2 \(item.sub(2))")
-                print("sub 2 length: \(item.sub(2)?.valueLength)")
-                print("raw sub 2 \(item.sub(2)?.rawValue?.hexString)")
-                print("value sub 2 \(item.sub(2)?.value)")
-                print("sub 2 sub \(item.sub(2)?.sub)")
+//                print("")
+//                print("******OPAQUE***********")
+//
+//                print("receipt opaque sub 0 \(item.sub(0))")
+//                print("raw sub 0 \(item.sub(0)?.rawValue?.hexString)")
+//                print("value sub 0 \(item.sub(0)?.value)")
+//                print("value sub 0 hex \((item.sub(0)?.value as? Data)?.toIntValue())")
+//
+//                print("***")
+//
+//                print("receipt opaque sub 1 \(item.sub(1))")
+//                print("raw sub 1 \(item.sub(1)?.rawValue?.hexString)")
+//                print("value sub 1 \(item.sub(1)?.value)")
+//                print("value sub 1 hex \((item.sub(1)?.value as? Data)?.toIntValue())")
+//
+//                print("***")
+//
+//                print("receipt opaque sub 2 \(item.sub(2))")
+//                print("sub 2 length: \(item.sub(2)?.valueLength)")
+//                print("raw sub 2 \(item.sub(2)?.rawValue?.hexString)")
+//                print("value sub 2 \(item.sub(2)?.value)")
+//                print("sub 2 sub \(item.sub(2)?.sub)")
 //                print("value sub 1 casted \(item.sub(1)?.value as? Int)")
             
             case 5:
+                print("receipt opaque sub 0 \(item.sub(0))")
+                print("raw sub 0 \(item.sub(0)?.rawValue?.hexString)")
                 receiptInfo.shaHash = item.sub(2)!.rawValue
                 
             case 19:
