@@ -86,6 +86,7 @@ extension PKCS7 {
             case 2:
                 receiptInfo.bundleIdentifier = fieldValueString
                 receiptInfo.bundleIdentifierData = item.sub(2)?.sub?.first?.rawValue
+                print("receipt bundleIdData: \(receiptInfo.bundleIdentifierData!.hexString)")
                 
             case 3:
                 receiptInfo.bundleVersion = fieldValueString
