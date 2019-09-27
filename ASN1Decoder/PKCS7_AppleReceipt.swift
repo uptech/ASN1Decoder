@@ -96,7 +96,7 @@ extension PKCS7 {
                 print("receipt bundleVersion sub 0 \(item.sub(0))")
                 print("raw sub 0 \(item.sub(0)?.rawValue?.hexString)")
                 print("value sub 0 \(item.sub(0)?.value)")
-                print("value sub 0 hex \(item.sub(0)?.value as? Int)")
+                print("value sub 0 hex \((item.sub(0)?.value as? Data)?.toIntValue())")
                 
                 print("***")
                 
@@ -104,6 +104,7 @@ extension PKCS7 {
                 print("raw sub 1 \(item.sub(1)?.rawValue?.hexString)")
                 print("value sub 1 \(item.sub(1)?.value)")
                 print("value sub 1 hex \(item.sub(1)?.value as? Int)")
+                print("value sub 1 hex \((item.sub(1)?.value as? Data)?.toIntValue())")
                 
                 print("***")
                 
@@ -121,14 +122,14 @@ extension PKCS7 {
                 print("receipt opaque sub 0 \(item.sub(0))")
                 print("raw sub 0 \(item.sub(0)?.rawValue?.hexString)")
                 print("value sub 0 \(item.sub(0)?.value)")
-                print("value sub 0 hex \(item.sub(0)?.value as? Int)")
+                print("value sub 0 hex \((item.sub(0)?.value as? Data)?.toIntValue())")
                 
                 print("***")
                 
                 print("receipt opaque sub 1 \(item.sub(1))")
                 print("raw sub 1 \(item.sub(1)?.rawValue?.hexString)")
                 print("value sub 1 \(item.sub(1)?.value)")
-                print("value sub 1 hex \(item.sub(1)?.value as? Int)")
+                print("value sub 1 hex \((item.sub(1)?.value as? Data)?.toIntValue())")
                 
                 print("***")
                 
