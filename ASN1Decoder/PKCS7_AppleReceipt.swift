@@ -86,7 +86,6 @@ extension PKCS7 {
             case 2:
                 receiptInfo.bundleIdentifier = fieldValueString
                 receiptInfo.bundleIdentifierData = item.sub(2)?.sub?.first?.rawValue
-                print("receipt bundleIdData: \(receiptInfo.bundleIdentifierData!.hexString)")
                 
             case 3:
                 receiptInfo.bundleVersion = fieldValueString
@@ -97,7 +96,7 @@ extension PKCS7 {
                 print("receipt opaque sub 0 \(item.sub(0))")
                 print("raw sub 0 \(item.sub(0)?.rawValue?.hexString)")
                 print("value sub 0 \(item.sub(0)?.value)")
-                
+                print("***")
                 print("receipt opaque sub 1 \(item.sub(1))")
                 print("raw sub 1 \(item.sub(1)?.rawValue?.hexString)")
                 print("value sub 1 \(item.sub(1)?.value)")
