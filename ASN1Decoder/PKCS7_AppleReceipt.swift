@@ -134,6 +134,7 @@ extension PKCS7 {
                 print("***")
                 
                 print("receipt opaque sub 2 \(item.sub(2))")
+                print("sub 2 length: \(item.sub(2)?.valueLength)")
                 print("raw sub 2 \(item.sub(2)?.rawValue?.hexString)")
                 print("value sub 2 \(item.sub(2)?.value)")
                 print("sub 2 sub \(item.sub(2)?.sub)")

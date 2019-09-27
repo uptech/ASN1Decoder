@@ -43,8 +43,9 @@ public class ASN1DERDecoder {
             
             
             if asn1obj.identifier!.isConstructed() {
+                let (contentData, length) = try loadSubContent(iterator: &iterator)
                 
-                let contentData = try loadSubContent(iterator: &iterator)
+                asn1obj.valueLength = Int(length)
                 
                 if contentData.isEmpty {
                     asn1obj.sub = try parse(iterator: &iterator)
@@ -66,8 +67,9 @@ public class ASN1DERDecoder {
                 
                 if asn1obj.identifier!.typeClass() == .universal {
                     
-                    var contentData = try loadSubContent(iterator: &iterator)
+                    var (contentData, length) = try loadSubContent(iterator: &iterator)
                     
+                    asn1obj.valueLength = Int(length)
                     asn1obj.rawValue = Data(contentData)
                     
                     
@@ -162,8 +164,9 @@ public class ASN1DERDecoder {
                 else {
                     // custom/private tag
                     
-                    let contentData = try loadSubContent(iterator: &iterator)
-            
+                    let (contentData, length) = try loadSubContent(iterator: &iterator)
+                    asn1obj.valueLength = Int(length)
+                    
                     if let str = String(data: contentData, encoding: .utf8) {
                         asn1obj.value = str
                     }
@@ -202,12 +205,12 @@ public class ASN1DERDecoder {
     }
 
     
-    private static func loadSubContent(iterator: inout Data.Iterator) throws -> Data  {
+    private static func loadSubContent(iterator: inout Data.Iterator) throws -> (Data, UInt64)  {
         
         let len = getContentLength(iterator: &iterator)
         
         guard len < Int.max else {
-            return Data()
+            return (Data(), len)
         }
         
         var byteArray: [UInt8] = []
@@ -220,7 +223,7 @@ public class ASN1DERDecoder {
                 throw ASN1Error.outOfBuffer
             }
         }
-        return Data(byteArray)
+        return (Data(byteArray), len)
     }
 
     // Decode DER OID bytes to String with dot notation
